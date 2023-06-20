@@ -1,0 +1,41 @@
+-- Create a bookstore database
+
+
+CREATE TABLE Bookstore (id INTEGER PRIMARY KEY, title TEXT, price INTEGER, genre TEXT, hardback TEXT, illustrated TEXT, rating INTEGER);
+
+INSERT INTO Bookstore VALUES (1, "DGM", 10, "manga", "no", "yes", 9);
+INSERT INTO Bookstore VALUES (2, "BSD", 10, "manga", "no", "yes", 9);
+INSERT INTO Bookstore VALUES (3, "VNC", 10, "manga", "no", "yes", 9);
+INSERT INTO Bookstore VALUES (4, "SCUMBAG", 20, "book", "no", "yes", 9);
+INSERT INTO Bookstore VALUES (5, "Wolfsong", 30, "book", "yes", "no", 10);
+INSERT INTO Bookstore VALUES (6, "TGCF", 20, "book", "no", "yes", 10);
+INSERT INTO Bookstore VALUES (7, "MDZS", 20, "book", "no", "yes", 9);
+INSERT INTO Bookstore VALUES (8, "The Reanimators Heart", 30, "book", "yes", "no", 7);
+INSERT INTO Bookstore VALUES (9, "The cerulean sea", 30, "book", "yes", "no", 10);
+INSERT INTO bOOKSTORE VALUES (10, "Atomic habits", 20, "book", "no", "no", 5);
+INSERT INTO Bookstore VALUES (11, "Lolita", 20, "book", "no", "no", 6);
+INSERT INTO Bookstore VALUES (12, "Dos velas para el diablo", 20, "book", "no", "no", 10);
+INSERT INTO Bookstore VALUES (13, "Omori", 30, "game", "yes", "yes", 10);
+INSERT INTO Bookstore VALUES (14, "ID", 30, "game", "yes", "yes", 9);
+INSERT INTO Bookstore VALUES (15, "Ace Attorney", 30, "game", "yes", "yes", 10);
+
+-- display the database ordered by price.
+SELECT * FROM bookstore
+ORDER BY price;
+
+-- what is the total price of the items in the "manga" section?
+SELECT SUM(price)
+FROM Bookstore
+WHERE genre='manga';
+
+-- how many illustrated books that have a 10 rating are there in the database?
+SELECT title, illustrated, rating 
+FROM Bookstore
+WHERE illustrated = 'yes'
+ORDER BY rating desc;
+
+-- What is the total price of the sum of the items that cost below 30?
+
+SELECT SUM(price)
+FROM Bookstore
+WHERE price < 30; 
